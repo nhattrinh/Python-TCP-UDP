@@ -18,21 +18,23 @@ def terminate_prompt():
 
 
 #create a socket for the server
-socket = socket.socket()
+server_socket = socket.socket()
 #set the address of that socket to be localhost port 10000
-address = ('',10000)
+ip = "127.0.0.1"
+port = 10000
+address = (ip,port)
 #the socket will be binded with the address
-socket.bind(address)
+server_socket.bind(address)
 #once the socket listens it turns into a server socket
-socket.listen(1)
+server_socket.listen(1)
 
 stop_loop = False
 
 while stop_loop == False:
-    client_socket, client_address = socket.accept()
+    client_socket, client_address = server_socket.accept()
     client_message = client_socket.recvfrom(1024)
     
     client_socket.send((str(count_characters(str(client_message[0].decode())))).encode())
     stop_loop = terminate_prompt()
     
-socket.close()
+server_socket.close()

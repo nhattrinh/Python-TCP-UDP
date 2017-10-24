@@ -10,10 +10,10 @@ def count_characters(sentence):
         
     return char_count
 
-#create a socket for client
-socket = socket.socket()
-#set arbitrary name for server we are requesting from
-server_name = "localhost"
+#create a socket for client, no need to set arguments, default is set for tcp socket
+client_socket = socket.socket()
+#set arbitrary ip for server we are requesting/sending from/to
+server_name = "127.0.01"
 #set the server port for the packet to travel through
 server_port = 10000
 
@@ -21,16 +21,16 @@ server_port = 10000
 socket.connect((server_name,server_port))
 
 #create data to send to server
-sentence = input('Enter a sentence to send: ')
-character_count = count_characters(sentence)
+sentence = input("Enter a sentence to send: ")
+client_count = count_characters(sentence)
 #send the sentence(data) to the server
-socket.send(sentence.encode())
+client_socket.send(sentence.encode())
 #wait for server to acknowledge and receive server's count of characters
-server_character_count = socket.recv(1024)
-server_character_count = server_character_count.decode()
+data = socket.recv(1024)
+server_count = data.decode()
 
 print("Sentence: " + sentence)
-print("Client\'s count: " + str(character_count))
-print("Server\'s count: " + str(server_character_count))
+print("Client's count: " + str(client_count))
+print("Server's count: " + str(server_count))
 socket.close()
 
