@@ -7,23 +7,31 @@ Lab 1 Testing Instructions
 
 First:
 1) open two instances of command line interface (Terminal for UNIX, cmd/PowerShell for Windows)
-2) go to the directory where the folder CMPE148-Lab1 is stored on command line interface
+2) go to the directory where the folder CMPE148-Lab1 is stored on command line interface usind cd command
 
 Then, to test the TCP client and server:
-1) in one of the command interface, type python tcp_client.py
-2) in the other command interface, type python tcp_server.py
+1) in one of the command interface, type "python tcp_client.py", without quotation
+2) in the other command interface, type "python tcp_server.py", without quotation
 3) in the tcp_client command interface, type your sentence and press enter when done
+    example:
+    1) type "cat", press enter
+    2) you should see original sentence followed by count of characters 
 4) in the tcp_server command interface, you should see the setence from the client and count done by server
 5) then the tcp_client you should see the sentence and the count if the server count and client count is the same
     otherwise error message will be displayed
+6) when asked by program, "terminate server y/n?" type in y for yes if you want to terminate server, otherwise type n then press enter
 
 Then, to test the UDP client and server:
-1) in one of the command interface, type python udp_client.py
-2) in the other command interface, type python udp_server.py
+1) in one of the command interface, type "python udp_client.py", without quotation
+2) in the other command interface, type "python udp_server.py", without quotation
 3) in the udp_client command interface, type your sentence and press enter when done
+    example:
+    1) type "cat", press enter
+    2) you should see original sentence followed by count of characters 
 4) in the udp_server command interface, you should see the setence from the client and count done by server
 5) then the udp_client you should see the sentence and the count if the server count and client count is the same
     otherwise error message will be displayed
+6) when asked by program, "terminate server y/n?" type in y for yes if you want to terminate server, otherwise type n then press enter
 
 
 

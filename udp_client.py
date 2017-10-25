@@ -1,3 +1,10 @@
+"""
+Nhat Trinh
+011227645
+Python 3.6
+CMPE 148 Fall 2017 10:30am
+"""
+
 import socket
 
 def count_characters(sentence):
@@ -22,10 +29,9 @@ client_count = count_characters(sentence)
 client_socket.sendto(sentence.encode(),server_address)
 
 data, address = client_socket.recvfrom(1024)
-
 server_count = data.decode()
 
-if (client_count == server_count):
+if (client_count.__str__() == server_count):
     print("Sentence: " + sentence)
     print("Character count: " + str(client_count))
 else:

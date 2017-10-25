@@ -1,3 +1,10 @@
+"""
+Nhat Trinh
+011227645
+Python 3.6
+CMPE 148 Fall 2017 10:30am
+"""
+
 import socket
 
 #function to count the characters in any string
@@ -19,7 +26,7 @@ server_name = "127.0.01"
 server_port = 10000
 
 #connect the socket with the server's address
-socket.connect((server_name,server_port))
+client_socket.connect((server_name,server_port))
 
 #create data to send to server
 sentence = input("Enter a sentence to send: ")
@@ -27,17 +34,17 @@ client_count = count_characters(sentence)
 #send the sentence(data) to the server
 client_socket.send(sentence.encode())
 #wait for server to acknowledge and receive server's count of characters
-data = socket.recv(1024)
+data = client_socket.recv(1024)
 server_count = data.decode()
 
 """client compares the count to server's count then print out both the message
     and the count"""
-if (client_count == server_count):
+if (client_count.__str__() == server_count):
     print("Sentence: " + sentence)
     print("Character count: " + str(client_count))
 else:
     print("Client and server counts are not equal!")
     
 # for every socket initialized there must be a socket close
-socket.close()
+client_socket.close()
 

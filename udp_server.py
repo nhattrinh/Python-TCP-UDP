@@ -1,3 +1,10 @@
+"""
+Nhat Trinh
+011227645
+Python 3.6
+CMPE 148 Fall 2017 10:30am
+"""
+
 import socket
 
 #function to count the characters in any string
@@ -13,7 +20,7 @@ def count_characters(sentence):
 
 #function to terminate the loop to end the server
 def terminate_prompt():
-    user_input = input("\nTerminate server, y/n? ")
+    user_input = input("Terminate server, y/n? ")
     if (user_input.__eq__("n")):
         return False
     return True
