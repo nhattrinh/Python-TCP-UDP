@@ -23,8 +23,12 @@ client_socket.sendto(sentence.encode(),server_address)
 
 data, address = client_socket.recvfrom(1024)
 
-print("Sentence: " + sentence)
-print("Client's count: " + str(client_count))
-print("Server's count: " + str(data.decode()))
+server_count = data.decode()
+
+if (client_count == server_count):
+    print("Sentence: " + sentence)
+    print("Character count: " + str(client_count))
+else:
+    print("Client and server counts are not equal!")
 
 client_socket.close()

@@ -1,5 +1,6 @@
 import socket
 
+#function to count the characters in any string
 def count_characters(sentence):
     sentence = str(sentence)
     words = sentence.split(' ')
@@ -10,6 +11,7 @@ def count_characters(sentence):
         
     return char_count
 
+#function to terminate the loop to end the server
 def terminate_prompt():
     user_input = input("\nTerminate server, y/n? ")
     if (user_input.__eq__("n")):
@@ -31,10 +33,15 @@ server_socket.listen(1)
 stop_loop = False
 
 while stop_loop == False:
+    # accept incoming connection from client
     client_socket, client_address = server_socket.accept()
-    client_message = client_socket.recvfrom(1024)
+    # receive data from the socket tcp style
+    client_message = client_socket.recv(1024)
     
+    # decode, count number of characters from client's data, encode, and send
     client_socket.send((str(count_characters(str(client_message[0].decode())))).encode())
+    # ask user if they want to terminate loop
     stop_loop = terminate_prompt()
     
+# for every socket open there must be a socket close
 server_socket.close()

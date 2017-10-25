@@ -1,5 +1,6 @@
 import socket
 
+#function to count the characters in any string
 def count_characters(sentence):
     sentence = str(sentence)
     words = sentence.split(' ')
@@ -29,8 +30,14 @@ client_socket.send(sentence.encode())
 data = socket.recv(1024)
 server_count = data.decode()
 
-print("Sentence: " + sentence)
-print("Client's count: " + str(client_count))
-print("Server's count: " + str(server_count))
+"""client compares the count to server's count then print out both the message
+    and the count"""
+if (client_count == server_count):
+    print("Sentence: " + sentence)
+    print("Character count: " + str(client_count))
+else:
+    print("Client and server counts are not equal!")
+    
+# for every socket initialized there must be a socket close
 socket.close()
 
