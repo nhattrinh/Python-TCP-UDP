@@ -1,10 +1,3 @@
-"""
-Nhat Trinh
-011227645
-Python 3.6
-CMPE 148 Fall 2017 10:30am
-"""
-
 import socket
 
 def count_characters(sentence):
