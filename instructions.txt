@@ -1,9 +1,3 @@
-Nhat Trinh
-011227645
-CMPE 148
-Fall 2017
-
-Lab 1 Testing Instructions
 
 First:
 1) open two instances of command line interface (Terminal for UNIX, cmd/PowerShell for Windows)
